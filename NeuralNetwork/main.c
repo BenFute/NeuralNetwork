@@ -52,8 +52,26 @@ double forward(double inputs[INPUT_SIZE], double weights_ih[INPUT_SIZE][HIDDEN_S
 }
 
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+int main() {
+    double inputs[INPUT_SIZE] = {0.5, 0.7};
+    
+    // Weights and biases
+    double weights_ih[INPUT_SIZE][HIDDEN_SIZE] = {
+        {0.1, 0.4, 0.8},
+        {0.3, 0.7, 0.2}
+    };
+    double weights_ho[HIDDEN_SIZE][OUTPUT_SIZE] = {
+        {0.5},
+        {0.9},
+        {0.6}
+    };
+    double bias_h[HIDDEN_SIZE] = {0.1, 0.3, 0.5};
+    double bias_o[OUTPUT_SIZE] = {0.2};
+    
+    // Forward pass
+    double output = forward(inputs, weights_ih, weights_ho, bias_h, bias_o);
+    
+    printf("Output: %lf\n", output);
+    
     return 0;
 }
